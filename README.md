@@ -15,6 +15,8 @@ for first time installation, open an anaconda prompt, run this line of code:
 
 > conda install -c esri arcgis
 
-you must also have arcgis pro installed on your computer i think
+you must also have arcgis pro installed on your computer i think.
+
+add your arcgis credentials in the `ARCGIS_PASSWORD.py` file. (NOTE: DO NOT PUT THE FILE WITH YOUR CREDENTIALS ONTO GITHUB OR ANY PUBLIC FILE STORAGE SERVICES!!)
 
 you can then run `update-arcgis-data.ipynb` in jupyter-notebook (with anaconda environment that has arcgis installed)
