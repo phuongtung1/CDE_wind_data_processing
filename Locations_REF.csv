@@ -1,0 +1,21 @@
+Station,Serial number,Latutude DD,Longitude DD,Floor,Height ,Location description,Building name
+#1,21004880,1.27714444444444,103.838944444444,Ground,2.5m,"lamppost 7/4, between BLK 3 and Blk 7 in Everton Park",Everton park
+#2,21024003,1.27698055555556,103.839675,Ground,2.5m,"lamppost 7/23 near the lane, between Blk 5 and BlK 7 in Everton Park",Everton park
+#3,21026652,1.27718055555556,103.840108333333,Ground,2.5m,"lamppost 7/14, in front of pavilion 1A in Everton Park",Everton park
+#4,21026653,1.27695555555556,103.840922222222,Ground,2.5m,slope grassland near the heritage garden,Pinnacle@Duxton
+#5,21027656,1.27722777777778,103.841275,Level 3,15m,"grassland near lamppost DB-D1/L 2R 5, in front of BLK 1C in Pinnacle@Duxton",Pinnacle@Duxton
+#6,21027657,1.27788055555556,103.8412,Level 4,15m,"grassland between BLK 1B and 1C, near the lamppost PL2/KL2 4, Pinnacle@ Duxton",Pinnacle@Duxton
+#7,21027658,1.27793611111111,103.841186111111,Level 26,80m,"sky walk level26, between BLK 1B and BLK 1C,Pinnacle@Duxton (opp open gym)",Pinnacle@Duxton
+#8,21027659,1.27791388888889,103.8412,Level 50 ,150m,"rooftop level 50, between BLK 1B and BLK 1C, Pinnacle@Duxton (opp wall climb)",Pinnacle@Duxton
+#9,21027660,1.27704444444444,103.8417,Level 50 ,150m,"rooftop level 50, on BLK 1D, Pinnacle@Duxton (near chairs)",Pinnacle@Duxton
+#10,21027661,1.27504722222222,103.842661111111,Ground,2.5m,"lamppost 4/2/20, along the sidewalk between BLK 1 and BLK 2 of Tanjong Pagar Plaza HDB (bo milk tea), moved to NUS later",Tanjong pagar plaza
+#10,21027661,1.2965994,103.7756102,Ground,2.5m,"This station moved from Tanjong Pagar to the lamppost located in greenery area near TMSI, NUS on Apr 29, 2022",NUS
+#11,21027662,1.27542222222222,103.842747222222,Ground,2.5m,"lamppost 2/1/20, along the sidewalk between BLK 2 and BLK 3 of Tanjong Pagar Plaza HDB (chocolat n spice)",Tanjong pagar plaza
+#12,21027663,1.27575,103.842802777778,Ground,2.5m,"lamppost 2/1/10, along the sidewalk between BLK 4 and BLK 5 of Tanjong Pagar Plaza HDB (skinlash)",Tanjong pagar plaza
+#13,21027664,1.30075277777778,103.768119444444,Level 14,42m,Kentvale Block A,Kent Vale
+#14,21027665,1.29911388888889,103.77125,Level 5,15m,E2 Rooftop,NUS
+#15,21040276,1.277101,103.8395371,Level 12,36m,"Rooftop of Blk 7, Everton Parksince Jun 13, 2022",Everton park
+#16,21040277,1.2777809,103.8417627,Ground,2.5m,"lamppost in Duxton Plain Park, behind BLK 1B and BLK 1C since Jun 13, 2022",Pinnacle@Duxton
+#17,21040278,1.2769259,103.8378711,Backyard fense,5m,"141 Neil road, since Jun 29, 2022",Heritage terrace house
+#18,21040279,1.277139,103.8378207,Courtyard,2.5 m,"141 Neil road, since Sep 9, 2022 (open window on  Sep 22, 2022)",Heritage terrace house
+#19,21040280,1.2773355,103.8377967,Frontyard,4 m,"141 Neil road, since Jun 29, 2022",Heritage terrace house
