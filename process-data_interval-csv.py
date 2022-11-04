@@ -55,7 +55,7 @@ DATA_COL_REPLACE = {
     '06 voltage power supply user code' : 'Voltage power supply',
     '07 wind speed user code'           : 'Wind Speed',
     '08 wind direction user code'       : 'Wind Direction',
-    '09 temperature pt100 user code'    : 'Temperature PT100',
+    '09 temperature pt100 user code'    : 'Temperature',
     '10 relative humidity user code'    : 'Relative Humidity',
     '11 solar radiation user code'      : 'Solar Radiation',
     '12 pm1.0 user code'                : 'PM1.0',
