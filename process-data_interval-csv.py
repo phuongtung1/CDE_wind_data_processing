@@ -6,62 +6,11 @@ import csv
 from zipfile import ZipFile
 from collections import OrderedDict
 
-import pandas as pd
-import numpy as np
-from matplotlib import pyplot as plt
-from windrose import WindroseAxes
+from CONSTANTS import ARCGIS_TIME_FORMAT, DATA_COL_IGNORE, DATA_COL_REPLACE, DOWNLOADED_TIME_FORMAT, EXTRACT_DIRECTORY, INFO_COL_REPLACE, PROCESSED_DATA_DIRECTORY, STATION_DATA_FILE, ZIP_DIRECTORY
 
 ###############################################################################
 # global constants & preprocessing
 
-# files and directories
-STATION_DATA_FILE = 'Locations_REF.csv'
-ZIP_DIRECTORY = 'downloaded_data'
-EXTRACT_DIRECTORY = '_temp'
-PROCESSED_DATA_DIRECTORY = 'processed_data'
-
-# time formats
-INPUT_TIME_FORMAT = '%Y/%m/%d %H:%M:%S %z'
-OUTPUT_TIME_FORMAT = '%Y/%m/%d %H:%M:%S'
-# FILE_NAME_TIME_FORMAT_15MIN = '%Y-%m-%d_%Hh%Mm'
-# FILE_NAME_TIME_FORMAT_1HOUR = '%Y-%m-%d_%Hh'
-FILE_NAME_TIME_FORMAT_15MIN = '%Y/%m/%d %H:%M:%S'
-FILE_NAME_TIME_FORMAT_1HOUR = '%Y/%m/%d %H:%M:%S'
-
-# dictionary for replacing station info headers
-INFO_COL_REPLACE = {
-    "Latutude DD": "Latitude",
-    "Longitude DD": "Longitude"
-}
-
-# dictionary for replacing data headers (left side must be all in lower case)
-# DATA_COL_REPLACE = {
-#     'timestamp'                         : 'Timestamp',
-#     '05 battery voltage user code'      : 'Battery voltage [V]',
-#     '06 voltage power supply user code' : 'Voltage power supply [V]',
-#     '07 wind speed user code'           : 'Wind Speed [m/s]',
-#     '08 wind direction user code'       : 'Wind Direction [deg]',
-#     '09 temperature pt100 user code'    : 'Temperature PT100 [°C]',
-#     '10 relative humidity user code'    : 'Relative Humidity [%]',
-#     '11 solar radiation user code'      : 'Solar Radiation [W/m2]',
-#     '12 pm1.0 user code'                : 'PM1.0 [µg/m³]',
-#     '13 pm2.5 user code'                : 'PM2.5 [µg/m³]',
-#     '14 pm10 user code'                 : 'PM10 [µg/m³]',
-# }
-DATA_COL_IGNORE = ['timestamp', '05 battery voltage user code', '06 voltage power supply user code', '08 wind direction user code']
-DATA_COL_REPLACE = {
-    'timestamp'                         : 'Timestamp',
-    '05 battery voltage user code'      : 'Battery voltage',
-    '06 voltage power supply user code' : 'Voltage power supply',
-    '07 wind speed user code'           : 'Wind Speed',
-    '08 wind direction user code'       : 'Wind Direction',
-    '09 temperature pt100 user code'    : 'Temperature',
-    '10 relative humidity user code'    : 'Relative Humidity',
-    '11 solar radiation user code'      : 'Solar Radiation',
-    '12 pm1.0 user code'                : 'PM1.0',
-    '13 pm2.5 user code'                : 'PM2.5',
-    '14 pm10 user code'                 : 'PM10',
-}
 
 # clear the processed data directory of the previous run
 try:
@@ -148,10 +97,10 @@ for filename in os.listdir(EXTRACT_DIRECTORY):
                 # -------------------------------------
                 # get the row timestamp and classify it into the corresponding 15 min file
                 # also update the timestamp with the output format (no change at the moment)
-                row_time = datetime.strptime(row['Timestamp'], INPUT_TIME_FORMAT)
+                row_time = datetime.strptime(row['Timestamp'], DOWNLOADED_TIME_FORMAT)
                 interval_id = {
-                    '15min': (row_time - timedelta(minutes=row_time.minute % 15, seconds=row_time.second)).strftime(FILE_NAME_TIME_FORMAT_15MIN),
-                    '1hour': (row_time - timedelta(hours=1, minutes=row_time.minute, seconds=row_time.second)).strftime(FILE_NAME_TIME_FORMAT_1HOUR)
+                    '15min': (row_time - timedelta(minutes=row_time.minute % 15, seconds=row_time.second)).strftime(ARCGIS_TIME_FORMAT),
+                    '1hour': (row_time - timedelta(hours=1, minutes=row_time.minute, seconds=row_time.second)).strftime(ARCGIS_TIME_FORMAT)
                 }
 
                 # -------------------------------------

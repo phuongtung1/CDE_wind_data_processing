@@ -5,6 +5,11 @@ from playwright.sync_api import expect, sync_playwright
 import datetime
 import sys
 
+from CONSTANTS import STATION_DATA_FILE, ZIP_DIRECTORY
+
+DATA_COLLECTION_PERIOD__DAYS = 0
+DATA_COLLECTION_PERIOD__WEEKS = 1
+
 HEADLESS = False
 if len(sys.argv) > 1:
     print('Headless:',sys.argv[1])
@@ -15,21 +20,16 @@ if len(sys.argv) > 1:
     else:
         HEADLESS = sys.argv[1]
 
-DAYS = 0
-WEEKS = 1
-
 playwright = sync_playwright().start()
 
 # get the list of ids of the devices of which the data is to be retrieved 
 DEVICES = set()
-station_data_file = 'Locations_REF.csv'
-with open(station_data_file, 'r') as csvfile:
+with open(STATION_DATA_FILE, 'r') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
         DEVICES.add(row['Serial number'])
 
 
-ZIP_DIRECTORY = 'downloaded_data'
 # remove the files currently in the download directory 
 try:
     shutil.rmtree(ZIP_DIRECTORY) 
@@ -49,8 +49,8 @@ page = browser.new_page()
 time_now = datetime.datetime.now()
 # start time: 24 hours, latest 15th minute, 0 second
 start_time = time_now - datetime.timedelta(
-    days=DAYS,
-    weeks=WEEKS,                        
+    days=DATA_COLLECTION_PERIOD__DAYS,
+    weeks=DATA_COLLECTION_PERIOD__WEEKS,                        
     # hours=24,                         
     minutes=time_now.minute % 15,       # current number of minutes modulo 15 => number of minutes after the latest (15*x)th minute
     seconds=time_now.second,            # current number of seconds
